@@ -1,1 +1,8 @@
-aca aparecera el form
+ESTA ES LA VISTA DE PRODUCTOS 
+
+  <form action="{% url 'agregar_producto' %}" method="post">
+    <!--post  crea contenido dentro del servidor-->
+    {% csrf_token %} {{form.as_p}}
+    <button type="submit">Agregar</button>
+  </form>
+</html>

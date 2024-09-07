@@ -17,10 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+# from productos import views
+from django.conf.urls.static import static #urls archivos estaticos
+from django.conf import settings  
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path(
-        "productos/", include("productos.urls")
+    path('admin/', admin.site.urls),
+    path('productos/', include('productos.urls')#este redirige a la urls de la app
     ),  # Cambia 'productos.url' por 'productos.urls'
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#se enruta el documento estatico que se desea mostrar

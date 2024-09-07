@@ -1,11 +1,10 @@
-from django.db import models # type: ignore
+from django.db import models  # type: ignore
 
 
 # Create your models here.
 class productos(models.Model):
-    Nombre = models.TextField(
-        max_length=200, verbose_name="Nombre del Producto"
-    )  # ayuda a que los nombres de los campos sean más comprensibles en la interfaz de usuario
+    Nombre = models.CharField(max_length=200, verbose_name="Nombre del Producto")
+    # Nombre = models.CharField(max_length=200, verbose_name="Nombre del Producto" )  # ayuda a que los nombres de los campos sean más comprensibles en la interfaz de usuario
     Marca = models.TextField(max_length=200, verbose_name="Marca del producto")
     Presentacion = models.TextField(max_length=200, verbose_name="Presentacion")
     Descripcion = models.TextField(
@@ -22,7 +21,7 @@ class productos(models.Model):
         null=True,
     )  # Permite que el campo sea nulo en la base de datos
 
-    def _str_(
+    def __str__(
         self,
     ):  # en una clase, estás especificando cómo se debe mostrar el objeto cuando se convierte en una cadena
         return self.Nombre
